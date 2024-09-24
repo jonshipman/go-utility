@@ -1,0 +1,29 @@
+﻿<Window x:Name="MainWindow1" x:Class="GoUtility.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GoUtility"
+        mc:Ignorable="d"
+        WindowState="Normal"
+        WindowStartupLocation="CenterScreen"
+        Title="GO Utility" Height="225" Width="600">
+    <StackPanel LayoutTransform="{StaticResource FontDoubled}">
+        <StackPanel.Resources>
+            <Style TargetType="UniformGrid">
+                <Setter Property="Margin" Value="5" />
+            </Style>
+        </StackPanel.Resources>
+        <UniformGrid Rows="1" Columns="3" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <RadioButton x:Name="TDPQuiet" Content="Quiet" Style="{StaticResource {x:Type ToggleButton}}"/>
+            <RadioButton x:Name="TDPBalanced" Content="Balanced" Style="{StaticResource {x:Type ToggleButton}}"/>
+            <RadioButton x:Name="TDPPerformance" Content="Performance" Style="{StaticResource {x:Type ToggleButton}}"/>
+        </UniformGrid>
+
+        <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <RadioButton x:Name="SmartFan" Content="Smart" Style="{StaticResource {x:Type ToggleButton}}"/>
+            <RadioButton x:Name="FullFan" Content="Full" Style="{StaticResource {x:Type ToggleButton}}"/>
+        </UniformGrid>
+    </StackPanel>
+
+</Window>

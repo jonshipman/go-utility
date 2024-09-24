@@ -1,0 +1,8 @@
+bin/
+obj/
+install/
+.vs/
+*.user
+*Backup.csproj
+*tmp.csproj
+.idea/
