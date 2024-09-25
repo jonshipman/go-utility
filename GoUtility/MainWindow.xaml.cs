@@ -32,10 +32,13 @@ namespace GoUtility
             TDPPerformance.Checked += TDPChanged;
         }
 
-        private void OnFocus(object? sender, EventArgs e)
+        private async void OnFocus(object? sender, EventArgs e)
         {
-            IsFanFullSpeed = Fan.IsFanAtFullSpeed();
-            SmartFanMode = Fan.GetSmartFanMode();
+            await Task.Run(() =>
+            {
+                IsFanFullSpeed = Fan.IsFanAtFullSpeed();
+                SmartFanMode = Fan.GetSmartFanMode();
+            });
 
             SmartFan.IsChecked = !IsFanFullSpeed;
             FullFan.IsChecked = IsFanFullSpeed;
