@@ -7,17 +7,18 @@
         mc:Ignorable="d"
         WindowState="Normal"
         WindowStartupLocation="CenterScreen"
-        Title="GO Utility" Height="225" Width="600">
+        Title="GO Utility" Height="225" Width="660">
     <StackPanel LayoutTransform="{StaticResource FontDoubled}">
         <StackPanel.Resources>
             <Style TargetType="UniformGrid">
                 <Setter Property="Margin" Value="5" />
             </Style>
         </StackPanel.Resources>
-        <UniformGrid Rows="1" Columns="3" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+        <UniformGrid Rows="1" Columns="4" HorizontalAlignment="Stretch" VerticalAlignment="Top">
             <RadioButton x:Name="TDPQuiet" Content="Quiet" Style="{StaticResource {x:Type ToggleButton}}"/>
             <RadioButton x:Name="TDPBalanced" Content="Balanced" Style="{StaticResource {x:Type ToggleButton}}"/>
             <RadioButton x:Name="TDPPerformance" Content="Performance" Style="{StaticResource {x:Type ToggleButton}}"/>
+            <RadioButton x:Name="TDPCustom" Content="30W" Style="{StaticResource {x:Type ToggleButton}}"/>
         </UniformGrid>
 
         <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Stretch" VerticalAlignment="Top">

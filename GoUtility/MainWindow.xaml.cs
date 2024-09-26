@@ -30,6 +30,7 @@ namespace GoUtility
             TDPQuiet.Checked += TDPChanged;
             TDPBalanced.Checked += TDPChanged;
             TDPPerformance.Checked += TDPChanged;
+            TDPCustom.Checked += TDPChanged;
         }
 
         private async void OnFocus(object? sender, EventArgs e)
@@ -45,6 +46,7 @@ namespace GoUtility
             TDPQuiet.IsChecked = SmartFanMode == TDP.Mode.Quiet;
             TDPBalanced.IsChecked = SmartFanMode == TDP.Mode.Balanced;
             TDPPerformance.IsChecked = SmartFanMode == TDP.Mode.Performance;
+            TDPCustom.IsChecked = SmartFanMode == TDP.Mode.Custom;
         }
 
         private void FanChecked(object sender, RoutedEventArgs e)
@@ -68,6 +70,12 @@ namespace GoUtility
             {
                 Fan.SetSmartFanMode(TDP.Mode.Performance);
                 TDP.SetPowerLimit(TDP.Mode.Performance);
+            }
+            else if (sender == TDPCustom)
+            {
+                Fan.SetFanTableForCustomMode();
+                Fan.SetSmartFanMode(TDP.Mode.Custom);
+                TDP.SetPowerLimit(TDP.Mode.Custom);
             }
         }
     }

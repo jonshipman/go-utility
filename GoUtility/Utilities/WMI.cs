@@ -78,5 +78,10 @@ namespace GoUtility.Utilities
 
             return value;
         }
+
+        public static void SetFanTable(FanTable fanTable)
+        {
+            Set("LENOVO_FAN_METHOD", "Fan_Set_Table", new() { { "FanTable", fanTable.GetBytes() } });
+        }
     }
 }

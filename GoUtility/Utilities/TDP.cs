@@ -23,17 +23,17 @@ namespace GoUtility.Utilities
             Quiet = 1,
             Balanced = 2,
             Performance = 3,
+            Custom = 255
         }
 
         public static void SetPowerLimit(Mode mode)
         {
             // @see https://github.com/Valkirie/HandheldCompanion
-            // Using the default TDP values listed here (may change after confirming with another source)
-
             int[][] TDPValues = [
                 new[] { 8, 8, 8 },
                 new[] { 15, 15, 15 },
-                new[] { 20, 20, 20 }
+                new[] { 20, 20, 20 },
+                new[] { 32, 30, 41 }
             ];
 
             if (mode == Mode.Quiet)
@@ -53,6 +53,12 @@ namespace GoUtility.Utilities
                 WMI.SetFeatureValue((int)PowerLimit.Short, (int)TDPValues[2][0]);
                 WMI.SetFeatureValue((int)PowerLimit.Long, (int)TDPValues[2][1]);
                 WMI.SetFeatureValue((int)PowerLimit.Peak, (int)TDPValues[2][2]);
+            }
+            else if (mode == Mode.Custom)
+            {
+                WMI.SetFeatureValue((int)PowerLimit.Short, (int)TDPValues[3][0]);
+                WMI.SetFeatureValue((int)PowerLimit.Long, (int)TDPValues[3][1]);
+                WMI.SetFeatureValue((int)PowerLimit.Peak, (int)TDPValues[3][2]);
             }
         }
 
