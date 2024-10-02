@@ -33,6 +33,13 @@ namespace GoUtility
             TDPCustom.Checked += TDPChanged;
         }
 
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
+        }
+
         private async void OnFocus(object? sender, EventArgs e)
         {
             await Task.Run(() =>
