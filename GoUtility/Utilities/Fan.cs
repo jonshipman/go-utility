@@ -20,30 +20,12 @@ namespace GoUtility.Utilities
 
         public static bool IsFanAtFullSpeed()
         {
-            var value = WMI.GetFeatureValue((int)IDS.FanFullSpeed);
-
-            if (value == 1)
-            {
-                return true;
-            }
-            else if (value == 0)
-            {
-                return false;
-            }
-
-            return false;
+            return WMI.GetFeatureValue((int)IDS.FanFullSpeed) == 1;
         }
 
         public static void SetFanFullSpeed(bool state)
         {
-            if (state)
-            {
-                WMI.SetFeatureValue((int)IDS.FanFullSpeed, 1);
-            }
-            else
-            {
-                WMI.SetFeatureValue((int)IDS.FanFullSpeed, 0);
-            }
+             WMI.SetFeatureValue((int)IDS.FanFullSpeed, state ? 1 : 0);
         }
 
         public static void SetSmartFanMode(TDP.Mode mode)
