@@ -26,6 +26,8 @@ namespace GoUtility.Utilities
             Custom = 255
         }
 
+        public static int BatteryChargeLimit = 50397185;
+
         public static void SetPowerLimit(Mode mode)
         {
             // @see https://github.com/Valkirie/HandheldCompanion
@@ -65,6 +67,16 @@ namespace GoUtility.Utilities
         public static int GetPowerLimitValue(PowerLimit powerLimit)
         {
             return WMI.GetFeatureValue((int)powerLimit);
+        }
+
+        public static Boolean GetBatteryChargeLimitStatus() 
+        {
+            return WMI.GetFeatureValue(BatteryChargeLimit) == 1;
+        }
+
+        public static void SetBatteryChargeLimit(Boolean value)
+        {
+            WMI.SetFeatureValue(BatteryChargeLimit, value ? 1 : 0);        
         }
     }
 }

@@ -19,6 +19,7 @@ namespace GoUtility
     {
         public bool IsFanFullSpeed = false;
         public TDP.Mode? SmartFanMode;
+        public bool IsChargeLimited = false;
 
         public MainWindow()
         {
@@ -31,6 +32,8 @@ namespace GoUtility
             TDPBalanced.Checked += TDPChanged;
             TDPPerformance.Checked += TDPChanged;
             TDPCustom.Checked += TDPChanged;
+            BatteryLimit.Checked += BatteryChargeChanged;
+            BatteryFull.Checked += BatteryChargeChanged;
         }
 
         protected override void OnClosed(EventArgs e)
@@ -46,6 +49,7 @@ namespace GoUtility
             {
                 IsFanFullSpeed = Fan.IsFanAtFullSpeed();
                 SmartFanMode = Fan.GetSmartFanMode();
+                IsChargeLimited = TDP.GetBatteryChargeLimitStatus();
             });
 
             SmartFan.IsChecked = !IsFanFullSpeed;
@@ -54,11 +58,18 @@ namespace GoUtility
             TDPBalanced.IsChecked = SmartFanMode == TDP.Mode.Balanced;
             TDPPerformance.IsChecked = SmartFanMode == TDP.Mode.Performance;
             TDPCustom.IsChecked = SmartFanMode == TDP.Mode.Custom;
+            BatteryLimit.IsChecked = IsChargeLimited;
+            BatteryFull.IsChecked = !IsChargeLimited;
         }
 
         private void FanChecked(object sender, RoutedEventArgs e)
         {
             Fan.SetFanFullSpeed(sender == FullFan);
+        }
+
+        private void BatteryChargeChanged(object sender, RoutedEventArgs e)
+        {
+            TDP.SetBatteryChargeLimit(sender == BatteryLimit);
         }
 
         private void TDPChanged(object sender, RoutedEventArgs e)

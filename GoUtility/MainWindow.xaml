@@ -25,6 +25,11 @@
             <RadioButton x:Name="SmartFan" Content="Smart" Style="{StaticResource {x:Type ToggleButton}}"/>
             <RadioButton x:Name="FullFan" Content="Full" Style="{StaticResource {x:Type ToggleButton}}"/>
         </UniformGrid>
+
+        <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <RadioButton x:Name="BatteryLimit" Content="Limit Charge" Style="{StaticResource {x:Type ToggleButton}}"/>
+            <RadioButton x:Name="BatteryFull" Content="Charge to 100%" Style="{StaticResource {x:Type ToggleButton}}"/>
+        </UniformGrid>
     </StackPanel>
 
 </Window>

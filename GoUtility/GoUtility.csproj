@@ -9,7 +9,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
 	<DebugType>embedded</DebugType>
 	<IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
-	<AssemblyVersion>1.0.2.0</AssemblyVersion>
+	<AssemblyVersion>1.0.3.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
