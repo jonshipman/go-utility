@@ -26,6 +26,7 @@ namespace GoUtility.Utilities
             Custom = 255
         }
 
+        // @see https://github.com/Valkirie/HandheldCompanion/blob/71fbf688f03d3f4c018063a92867e8f51389282b/HandheldCompanion/Devices/Lenovo/LegionGo.cs#L163
         public static int BatteryChargeLimit = 50397185;
 
         public static void SetPowerLimit(Mode mode)
