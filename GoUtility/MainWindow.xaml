@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowState="Normal"
         WindowStartupLocation="CenterScreen"
-        Title="GO Utility" Height="255" Width="660">
+        Title="GO Utility" Height="280" Width="660">
     <StackPanel LayoutTransform="{StaticResource FontDoubled}">
         <StackPanel.Resources>
             <Style TargetType="UniformGrid">
