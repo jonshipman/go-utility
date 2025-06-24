@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowState="Normal"
         WindowStartupLocation="CenterScreen"
-        Title="GO Utility" Height="225" Width="660">
+        Title="GO Utility" Height="255" Width="660">
     <StackPanel LayoutTransform="{StaticResource FontDoubled}">
         <StackPanel.Resources>
             <Style TargetType="UniformGrid">
@@ -29,6 +29,11 @@
         <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
             <RadioButton x:Name="BatteryLimit" Content="Limit Charge" Style="{StaticResource {x:Type ToggleButton}}"/>
             <RadioButton x:Name="BatteryFull" Content="Charge to 100%" Style="{StaticResource {x:Type ToggleButton}}"/>
+        </UniformGrid>
+
+        <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <Button x:Name="EnableGamepad" Content="Enable Gamepad" Click="EnableGamepad_Click" />
+            <Button x:Name="DisableGamepad" Content="Disable Gamepad" Click="DisableGamepad_Click" />
         </UniformGrid>
     </StackPanel>
 

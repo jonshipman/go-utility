@@ -96,5 +96,31 @@ namespace GoUtility
                 TDP.SetPowerLimit(TDP.Mode.Custom);
             }
         }
+
+        private void EnableGamepad_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DeviceManager.EnableDevices();
+                MessageBox.Show("Gamepad enabled.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error enabling devices:\n{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void DisableGamepad_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DeviceManager.DisableDevices();
+                MessageBox.Show("Gamepad disabled.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error disabling devices:\n{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
